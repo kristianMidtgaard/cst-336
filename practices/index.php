@@ -17,4 +17,4 @@
     <img src="https://media.gettyimages.com/photos/magentathroated-woodstar-feeding-from-flowers-picture-id853369596" alt="hummingbird"/>
   </section>
 </body>
-</hmtl>
+</html>
