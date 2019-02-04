@@ -1,0 +1,37 @@
+#header{
+ color: yellow;   
+ text-align:center;
+}
+.body{
+    background: black;
+}
+
+.flex-top {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.flex-bottom {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#top_left{
+ border-top-left-radius: 30%;   
+}
+#top_right{
+    border-top-right-radius: 30%;   
+}
+#bottom_left{
+    border-bottom-left-radius: 30%;   
+    
+}
+#bottom_right{
+    border-bottom-right-radius: 30%;   
+}
+
+h4{
+    color:white;
+}
