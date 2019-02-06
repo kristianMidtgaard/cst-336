@@ -15,13 +15,13 @@ p {
     color:white;
 }
 
-#flex-top {
+#flexTop {
     display: flex;
     flex-flow:column;
 
 }
 
-#flex-middel {
+#flexMiddel {
     display: flex;
     flex-flow:column;
     justify-content: center;
@@ -30,7 +30,7 @@ p {
     height:auto;
 }
 
-#flex-bottom {
+#flexBottom {
     display:flex;
     flex-flow:column;
 }

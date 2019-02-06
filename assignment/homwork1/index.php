@@ -1,11 +1,11 @@
 <hmtl>
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="UTF-8">
         <title>Computer Science</title>
         <link href="/w/assignment/homwork1/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div id="flex-top">
+        <div id="flexTop">
             <header>
                 <h1>Computer Science Topics</h1>
             </header>
@@ -19,7 +19,7 @@
             </nav>
         </div>
         <main>
-            <div id="flex-middel">
+            <div id="flexMiddel">
                 <p>In this binary age. Is one of the hot topics. How to be safe on the online.</br> This site will give you, pointers.</p>
                 <p>Check out the topics: </br> Scams in social media, Secure loging and False emails.</p></br>
 			<svg id="svg">
@@ -28,7 +28,7 @@
             </div>
 			
         </main>
-            <div id="flex-bottom">
+            <div id="flexBottom">
                 <footer>
                     <hr>
                     Cst-336. 2019&copy; Midtgard <br/>
