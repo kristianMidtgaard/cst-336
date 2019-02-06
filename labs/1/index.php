@@ -13,9 +13,9 @@
     <body>
         <nav>
             <hr width="50%" />
-            <a href="index.html">Home</a>
+            <a href="/w/labs/1/index.php">Home</a>
             <a href="/w/labs/1/PersonalPortfolio/about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="/w/labs/1/PersonalPortfolio/contact.html">Contact</a>
         </nav>
             
         <br/><br/>
@@ -23,29 +23,27 @@
     <main>
         
         <figure id="me">
-            <img src="/w/labs/1/PersonalPortfolio/img/juan_doe.png" alt="Picture of Juan Doe" />
+            <img src="/w/labs/1/PersonalPortfolio/img/cycling.jpg" alt="Picture of me and my frind cycling" />
         </figure>
         
-        <div id="welcomeText">
-            Hello! <br/>
-            <p>Than you for visiting my professional portfolio</p>
-            <p>I am a Software Engineer and have benn recently hired at the Acme Corporation</p>
+        <div id="welcomeText"><br/>
+            <p>Hello!</p>
+            <p>Than you for visiting my home page</p>
+            <p>I am a Computer engineering student at HIO in Halden Norway</p>
             <p>Feel free to contact me!</p>
             
             <br/><br/>
             
-            <em>"With ordinary talent and extraordinary <strong>perseverance</strong>, all things are attainable</em><br/> - Thomas F. Buxton
+            <em>Pain is temporary<strong> Quitting last forever</strong></em><br/> - Lance Armstrong 
             
         </div>
         
     </main>
     </body>
     
-    <footer>
+    <footer id="main-footer">
         <hr>
         Cst-336. 2019&copy; Midtgard <br/>
-        <strong>Disclaimer:</strong> The information in this webpage is fictious.
-        <br/>
-        It is used for academic purposes only. 
+        <img src="/w/labs/1/PersonalPortfolio/img/California-State-University-Monterey-Bay.jpg" alt="logo" />
     </footer>
 </html>

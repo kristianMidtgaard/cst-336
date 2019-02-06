@@ -1,4 +1,4 @@
-header, main, nav, footer{
+header, main, nav, footer {
     text-align: center;
 }
 
@@ -13,18 +13,18 @@ body {
     color:gray; 
 }
 
-nav a { /* links within "nav" container */
+nav a { 
     padding:15px;
     padding-bottom:4px;
     font-size:1.8em;
-    text-decoration:none; /* removes underline */
-    color: white; /*by default, links are blue */
+    text-decoration:none; 
+    color: white; 
 }
 
-nav a:hover { /*pseudo class*/
+nav a:hover { 
     border-bottom:2px orange solid;
     font-size:2em;
-    transition: .9s; /*transition effect */ 
+    transition: .9s; 
 }
 
 #me, #welcomeText {
@@ -34,13 +34,6 @@ nav a:hover { /*pseudo class*/
 footer {
     clear:left;
 }
-
-.hobby {
-    colot: yellow;
-}
-
-
-/*About.html*/
 
 table {
     margin: 0px auto;
@@ -64,9 +57,27 @@ td strong {
 }
 
 ul {
-    text-align: left;
+    text-align:left;
     padding-left: 200px;
 }
 
+.hobby {
+    color: yellow;
+}
 
-/*contact.html*/
+
+#logo.fixed {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+ 
+}
+
+#main-footer {
+    font-size:15px;
+    color:red;
+}
+
+#welcomeText{
+    text-align: left;
+}
