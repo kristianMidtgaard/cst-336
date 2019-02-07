@@ -11,10 +11,10 @@
             </header>
             <nav>
                 <hr width="60%" />
-                <a id="home-link" href="homwork1/index.php">Home</a>
+                <a id="home-link" href="index.php">Home</a>
                 <a id="scams-link" href="scams_in_social_media.html">Scams in social media</a>
-                <a id="secure-link" href="homwork1/secure_login.html">Secure login</a>
-                <a id="false-link" href="homwork1/false_emails.html">False emails</a>
+                <a id="secure-link" href="secure_login.html">Secure login</a>
+                <a id="false-link" href="false_emails.html">False emails</a>
 				<hr width="60%" />
             </nav>
         </div>
