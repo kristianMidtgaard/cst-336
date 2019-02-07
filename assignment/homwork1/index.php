@@ -13,7 +13,7 @@
                 <hr width="60%" />
                 <a id="home-link" href="/w/assignment/homwork1/index.php">Home</a>
                 <a id="scams-link" href="/w/assignment/homwork1/scams_in_social_media.html">Scams in social media</a>
-                <a id="secure-link" href="/w/assignment/homwork1/secure_login.html">Secure loing</a>
+                <a id="secure-link" href="/w/assignment/homwork1/secure_login.html">Secure login</a>
                 <a id="false-link" href="/w/assignment/homwork1/false_emails.html">False emails</a>
 				<hr width="60%" />
             </nav>
