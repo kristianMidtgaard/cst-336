@@ -23,7 +23,7 @@
     <main>
         
         <figure id="me">
-            <img src="/w/labs/1/PersonalPortfolio/img/cycling.jpg" alt="Picture of me and my frind cycling" />
+            <img src="img/cycling.jpg" alt="Picture of me and my frind cycling" />
         </figure>
         
         <div id="welcomeText"><br/>
@@ -44,6 +44,6 @@
     <footer id="main-footer">
         <hr>
         Cst-336. 2019&copy; Midtgard <br/>
-        <img src="/w/labs/1/PersonalPortfolio/img/California-State-University-Monterey-Bay.jpg" alt="logo" />
+        <img src="img/California-State-University-Monterey-Bay.jpg" alt="logo" />
     </footer>
 </html>
