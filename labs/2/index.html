@@ -11,21 +11,16 @@
         
         <!--Custom Styles-->
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        
-        <!--JQuery-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
     </head>
     <body>
 
         <div class="jumbotron">
             <h1>Guess a Number</h1>
         </div>
-        
         <div id="directions" clas="resultParas">
             Guess a number between 1 and 99 in seven attempts!
-            
-            </br></br>
+            <h4 id="gamesW">Games won:</h4>
+            <h4 id="gamesL">Games lost:</h4>
             <label for="guessField">Enter a guess: </label>
             <input type="text" name="guessField" class="guessField"/>
             <input type="submit" value="Submit guess" class="guessSubmit"/>
@@ -36,6 +31,9 @@
             <p id="lowOrHi"></p>
             <button id='reset'>Reset</button>
         </div>
+       
+</div>
         <script SRC="js/functions.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
     </body>
 </html>

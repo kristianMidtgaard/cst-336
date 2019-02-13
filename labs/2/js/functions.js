@@ -1,10 +1,12 @@
-        
-        
-        $(document).ready(function(){
-        
-        });
-      
-       
+            
+            
+          
+            
+            //Gameswon og lost code. 
+            var gamesWon = 0; 
+            var gamesLost = 0; 
+            var gamesW = document.querySelector('#gamesW');
+            var gamesL = document.querySelector('#gamesL'); 
             
             var randomNumber = Math.floor(Math.random() * 99) + 1;
             var guesses = document.querySelector('#guesses');
@@ -20,38 +22,63 @@
             
             var resetButton;
             
+           
             function checkGuess(){
                 var userGuess = Number(guessField.value);
                 if(guessCount === 1){
                     guesses.innerHTML = 'Previous guesses: ';
                 }
-                guesses.innerHTML += userGuess + ' '; 
+               
+            guesses.innerHTML += userGuess + ' '; 
                 
-                if(userGuess == randomNumber){
-                    lastResult.innerHTML = ' Congratulations! You got it right!';
-                    lastResult.style.backgroundColor = 'green'; 
-                    lowOrHi.innerHTML = ' '; 
-                    setGameOver();
-                }else if (guessCount == 7){
-                    lastResult.innerHTML = 'Sorry, you lost!';
-                    setGameOver();
-                }else {
-                    lastResult.innerHTML = 'Wrong!'; 
-                    lastResult.style.backgroundColor = 'red';
-                    if (userGuess < randomNumber){
-                        lowOrHi.innerHTML = ' Last guess was too low!'; 
-                    }else if(userGuess > 99 ){
-                        lowOrHi.innerHTML ='Last guess was over 99 or not number!'; 
-                        guessCount--; 
-                    }else if (userGuess > randomNumber){
-                        lowOrHi.innerHTML = 'Last guess was too high! '
-                    }
+            //jQiery code for error message. 
+            $(document).ready(function(){
+            
+                if(( userGuess > 99) || isNaN(userGuess) ){
+                  
+                    $('#lastResult').html("Last guess was over 99 or not number!");
+                    function fadeLastResult(){
+                    $('#lastResult').fadeOut(200);
+                    $('#lastResult').fadeIn(200);
+                  }
+                    setInterval(fadeLastResult(), 4000); 
+                    guessCount--;
                 }
+         
+            }); 
+                    
+            if(userGuess == randomNumber){
+                lastResult.innerHTML = ' Congratulations! You got it right!';
+                lastResult.style.backgroundColor = 'green'; 
+                lowOrHi.innerHTML = ' ';
+                setGameOver();
+                    
+                //Gameswon code 
+                gamesWon++;
+                gamesW.innerHTML = 'Games won: ' + gamesWon;
+                   
+            }else if (guessCount == 7){
+                lastResult.innerHTML = 'Sorry, you lost!';
+                setGameOver();
+                    
+                //Gameslost code 
+                gamesLost++;
+                gamesL.innerHTML = 'Games lost: ' + gamesLost;
+                    
+            }else {
+                lastResult.innerHTML = 'Wrong!'; 
+                lastResult.style.backgroundColor = 'red';
+                if (userGuess < randomNumber){
+                    lowOrHi.innerHTML = ' Last guess was too low!'; 
+                }else if (userGuess > randomNumber){
+                    lowOrHi.innerHTML = 'Last guess was too high! '
+                }
+            }
                 
+            guessCount++;
+            guessField.value = ' ';
+            guessField.focus(); 
                 
-                guessCount++;
-                guessField.value = ' ';
-                guessField.focus(); 
             }
             guessSubmit.addEventListener('click', checkGuess);
             
@@ -63,8 +90,7 @@
             }
             
             function resetGame(){
-                guessCount = 1; 
-                
+                guessCount = 1;
                 var resetParas = document.querySelectorAll('.resultParas p');
                 for( var i = 0; i < resetParas.length; i++){
                     resetParas[i].textContent = ' ';
@@ -73,11 +99,10 @@
                 resetButton.style.display = 'none';
                 
                 guessField.disabled = false; 
-                guessSubmit.disabled = false; 
+                guessSubmit.disabled = false;
                 guessField.value = ' ';
                 guessField.focus();
-                
                 lastResult.style.backgroundColor = 'white';
-                
+               
                 randomNumber = Math.floor(Math.random() * 99 ) + 1; 
             }
