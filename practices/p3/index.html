@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slot Machine</title>
+        <link rel="stylesheet" href="/w/practices/p3/slot_machine/css/style.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <h1> Slot Machine </h1>
+        
+       <div id="button"><button>Play!</button></div>
+        
+        <div id="container">
+            <div id="image1"></div>
+            <div id="image2"></div>
+            <div id="image3"></div>
+        </di>
+        
+        <h1 id="jackpot"></h1>
+        <h2 id="youwon"></h2>
+        <h2 id="totalwinnings"></h2>
+        
+        <script>
+            var audio = new Audio('/w/practices/p3/slot_machine/audio/jackpot.m4a');
+
+             $(document).ready(function(){
+            
+           
+            
+            $("#button").on("click",function() {
+                
+                
+                let imageArray = ["cherry","grapes","seven"];
+                let randomIndex1 = Math.floor(Math.random()*3);
+                let randomIndex2 = Math.floor(Math.random()*3);
+                let randomIndex3 = Math.floor(Math.random()*3);
+                let randomImage1 = imageArray[randomIndex1];
+                let randomImage2 = imageArray[randomIndex2]; 
+                let randomImage3 = imageArray[randomIndex3];
+                
+                
+                
+                $("#image1").html("<img src='/w/practices/p3/slot_machine/img/"+randomImage1+".png'/>");
+                $("#image2").html("<img src='/w/practices/p3/slot_machine/img/"+randomImage2+".png'/>");
+                $("#image3").html("<img src='/w/practices/p3/slot_machine/img/"+randomImage3+".png'/>");
+               
+                
+                if((randomImage1 && randomImage2 && randomIndex3) == imageArray[2]){
+                $("#jackpot").html("JACK POT!!");
+                $("#youwon").html("You Won");
+                $("#totalwinnings").html("Total winnings is $500");
+                }
+                
+            });
+            
+            $("#button").on("click",function() {
+                function audioplay(){
+                    audio.play(); 
+                }
+                
+                 setInterval(audioplay(), 10);
+                
+             });   
+               
+                
+            }); 
+            
+      
+            
+        </script>
+
+    </body>
+</html>
