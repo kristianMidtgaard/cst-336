@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta charset="utf-8" />
+     
+    <title> Rental car form </title>
+
+     <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    
+    <header>
+        <h1>Rent a car</h1>
+			
+    </header>
+		
+		<hr/>
+		
+    <main>
+	
+      <h2>Car rental form:</h2>
+      
+	  <div id="mainForm">
+				
+				<div id="name">
+					<p>First Name:</p> 
+					<input type="text" id="firstName">
+					
+					<p>Surname:</p> 
+					<input type="text" id="surname">
+				</div>
+				
+				<div id="genderInfo">
+					<p>What is your gender?</p>
+					<input type="radio" id="man" name="gender">
+					<label for="gender">Man</label>
+            
+					<input type="radio" id="woman" name="gender">
+					<label for="gender">Woman</label>
+					
+					<input type="radio" id="otter" name="gender">
+					<label for="gender">Otter</label>
+					
+					<input type="radio" id="other" name="gender">
+					<label for="gender">Other</label>
+					<p>If other enter:</p> 
+					<input type="text" id="otherInfo">
+				</div>
+				
+				<div id="from">
+					<p>From the date:</p>
+					<input type="date" id="fromDate">
+					<h5>mm/dd/yyyy</h5>
+				</div>
+				
+				<div id="to">
+					<p>To date:</p>
+					<input type="date" id="toDate">
+					<h5>dd/mm/yyyy</h5>
+				</div>
+				
+				<div id="size">
+					<p>Car size:</p>
+					<select id="car" name="usercar">
+						<option value="smallCar">Small car</option>
+						<option value="mediumCar">Medium car</option>
+						<option value="bigCar">Big car</option>
+					</select>
+				</div>
+				
+				<button id="submit">Submit</button>
+			</div>
+            
+      <div id="output">
+		<p id="firsN"></p>
+		<p id="surN"></p>
+		<p id="outGender"></p>
+		<p id="outFrom"></p>
+		<p id="outTo"></p>
+		<p id="outCar"></p>
+		
+		
+	  </div>
+    </main>
+    
+    <footer>
+        <hr/>
+		<h4>Cst-336. 2019&copy; Midtgard</h4> 
+    </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/javas.js"></script>
+</body>
+
+</html>

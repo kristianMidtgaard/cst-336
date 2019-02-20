@@ -1,0 +1,132 @@
+h1 {
+	color: #c9af98;
+    text-align: center;
+	margin: 7px;
+}
+
+p {
+	margin: 5px;
+}
+
+h2{
+	padding: 5px;
+	color: #c9af98;
+}
+
+h4{
+	color: #c9af98;
+}
+
+h5{
+	margin: 2px;
+}
+body{
+	background-color: #3a4660;
+}
+
+header{
+	background-color: #3a4660;
+	padding: 5px;
+	margin: 0px;
+}
+
+hr {
+	margin: 0px;
+	padding: 1px;
+	width: 100%;
+	background-color: white;
+}
+
+#submit{
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 2px solid gray;
+	background-color: #3a4660;
+	color: #c9af98;
+}
+
+#mainForm {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 2px solid gray;
+	background-color: #3a4660;
+}
+
+#output {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 2px solid gray;
+	background-color: white;
+}
+
+#genderInfo {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 1px solid black;
+	background-color: #c9af98;
+}
+
+#from {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 1px solid black;
+	background-color: #c9af98;
+}
+
+#to {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 1px solid black;
+	background-color: #c9af98;
+}
+
+#size {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 1px solid black;
+	background-color: #c9af98;
+}
+
+#name {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 1px solid black;
+	background-color: #c9af98;
+}
+
+input[type=text], select {
+  width: 30%;
+  padding: 6px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=date], select {
+  width: 30%;
+  padding: 6px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=select], select {
+  width: 31%;
+  padding: 6px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=radio], select {
+  padding: 6px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+

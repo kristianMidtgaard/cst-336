@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+    color: #FFC300;
+}
+
+.quiz1, .quiz2, .quiz3, .quiz4, .quiz5, .quiz6 {
+  width: 320px;
+  padding: 5px;
+  border: 2px solid gray;
+  margin: 5px;
+  background-color:white; 
+}
+
+main {
+	background-size: cover; 
+	background-repeat: no-repeat;
+}
+
+h2 {
+  width: 320px;
+  padding: 5px;
+  border: 2px solid gray;
+  margin: 5px;
+  background-color:white; 
+}
+
+#reset {
+	padding: 5px;
+	margin: 5px;
+	border: 2px;
+	border: 2px solid gray;
+}
+
+#welcome {
+  width: 320px;
+  padding: 5px;
+  border: 2px solid gray;
+  margin: 5px;
+  background-color:white; 
+  font-size: 12px;
+}
+
+hr{
+  width: 100%;
+  margin: 0px;
+}	
+		 
