@@ -1,61 +1,186 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Earthquake Web API</title>
- 
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-</head>
-<body id="dummybodyid">
-  <header>
-    <h1>Earthquake Info</h1>
-  </header>
+    <title>Open Weather Map</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-  <form method="post">
-		<div><label>Start Time:</label><input type="text" id="starttime" value="2017-10-01"></div>
-		<div><label>End Time:</label><input type="text" id="endtime" value="2017-11-30"></div>
-		<div><label>Latitude:</label><input type="text" id="latitude" value="36.6"></div>
-		<div><label>Longitude:</label><input type="text" id="longitude" value="-121.9"></div>
-		<div><label>Max Radius:</label><input type="text" id="maxradius" value="10"></div>
-		<div><label>Magnitude (0 to 7):</label><input type="range" id="minmag" min="0" value="3" max="7"></div>
-	</form>
+     
 
-  <div>
-    Change any value to update results.
-  </div>
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
-  <div id="earthquakeResult"></div>
+        .container {
+            margin: 0 auto;
+            display: block;
+            width: 320px;
+            height: 330px;
+            border-radius: 2px;
+            box-shadow: 2px 2px 10px #666;
+        }
 
-  <script>
-		$("input").change(getEarthquakes);
+        .city {
+            position: relative;
+            color: #343434;
+            font-family: roboto;
+            font-size: 2em;
+            width: 92%;
+            padding: 4%;
+            display: block;
+            float: left;
+            background: #fefefe;
+        }
 
-  	function getEarthquakes() {        
-      $.ajax({
-          type: "get",
-          url: "https://earthquake.usgs.gov/fdsnws/event/1/query",
-          dataType: "json",
-          data: {
-            "format":"geojson",
-            "starttime":$("#starttime").val(),
-            "endtime"  :$("#endtime").val(),
-            "latitude" :$("#latitude").val(),
-            "longitude":$("#longitude").val(),
-            "maxradius":$("#maxradius").val(),
-            "minmag"   :$("#minmag").val()
-          },
-          success: function(data,status) {
-            $('#earthquakeResult').html(data["metadata"].title + "<br>");
-            for (var i=0; i < data['features'].length; i++ ) {
-              $('#earthquakeResult').append(data['features'][i]['properties']["mag"] + " - " + data['features'][i]['properties'].place  + "<br/>");
+        .text {
+            position: absolute;
+            font-family: roboto;
+            font-size: 5em;
+            bottom: 0px;
+            left: 10px;
+            z-index: 3;
+
+            &:after {
+                content: '°C';
+                font-size: 30px;
+                float: right;
+                position: relative;
+                top: 12px;
             }
-          },
-          complete: function(data,status) { //optional, used for debugging purposes
-            //console.log(status);
-          }
-         });
-    }
- 	</script>
+        }
+
+        .card {
+            padding: 10%;
+            width: 80%;
+            height: 200px;
+            position: relative;
+            z-index: 0;
+        }
+
+        .day {
+            background: $day;
+            color: #343434;
+        }
+
+        .night {
+            background: $night;
+            color: #ababab;
+        }
+
+
+        @media screen and (max-width: 340px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Earthquake Info</h1>
+    </header>
+
+    <form class="weather">
+        <div><label>Enter Location:</label>
+            <input type="text" id="location" value="marina, ca"></div>
+        <div>
+            <button type="button">Get Weather</button>
+        </div>
+    </form>
+
+    <div class="container">
+        <div id='card' class="card day">
+            <div id="temp" class="text">17</div>
+            <div id="weather" class="cloudy">
+                <img src="" />
+            </div>
+        </div>
+        <div id="city" class="city">City, Country</div>
+    </div>
+
+
+    <script>
+        //e2f2dc5942f982298eb20be6899654d2
+        //api.openweathermap.org/data/2.5/weather?q=
+        $("form.weather button").on("click", function(e) {
+            $.ajax({
+                type: "get",
+                url: "https://api.openweathermap.org/data/2.5/weather",
+                dataType: "json",
+                data: {
+                    "q": $("#location").val(),
+                    "appid": "e2f2dc5942f982298eb20be6899654d2"
+                },
+                success: function(data) {
+                    $("#city").html(`${data.name}, ${data.sys.country}`);
+                    $("#weather img").attr("src", `http://openweathermap.org/img/w/${data.weather[0].icon}.png`)
+                    console.log(data);
+
+                },
+                complete: function(data, status) { //optional, used for debugging purposes
+                    //console.log(status);
+                }
+            });
+        });
+
+        var degToDirection = function(deg) {
+            if (deg > 11.25 && deg < 33.75) {
+                return "NNE";
+            }
+            else if (deg > 33.75 && deg < 56.25) {
+                return "ENE";
+            }
+            else if (deg > 56.25 && deg < 78.75) {
+                return "E";
+            }
+            else if (deg > 78.75 && deg < 101.25) {
+                return "ESE";
+            }
+            else if (deg > 101.25 && deg < 123.75) {
+                return "ESE";
+            }
+            else if (deg > 123.75 && deg < 146.25) {
+                return "SE";
+            }
+            else if (deg > 146.25 && deg < 168.75) {
+                return "SSE";
+            }
+            else if (deg > 168.75 && deg < 191.25) {
+                return "S";
+            }
+            else if (deg > 191.25 && deg < 213.75) {
+                return "SSW";
+            }
+            else if (deg > 213.75 && deg < 236.25) {
+                return "SW";
+            }
+            else if (deg > 236.25 && deg < 258.75) {
+                return "WSW";
+            }
+            else if (deg > 258.75 && deg < 281.25) {
+                return "W";
+            }
+            else if (deg > 281.25 && deg < 303.75) {
+                return "WNW";
+            }
+            else if (deg > 303.75 && deg < 326.25) {
+                return "NW";
+            }
+            else if (deg > 326.25 && deg < 348.75) {
+                return "NNW";
+            }
+            else {
+                return "N";
+            }
+        };
+    </script>
+
+
+
 </body>
+
 </html>
