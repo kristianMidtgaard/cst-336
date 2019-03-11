@@ -1,3 +1,4 @@
+/*Stylin for output frome zip code*/
 #output {
     width: 100% !important;
     padding: 5px;
@@ -13,6 +14,7 @@
 
 }
 
+/*Header styling whit some !important to own bootstrap*/
 header {
 	width: 80% !important;
 	color: #7ed321;
@@ -23,6 +25,7 @@ label{
 	color: #7ed321;
 }
 
+/*The main box some shadow around*/
 .container {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -48,6 +51,7 @@ label {
 	width: 100% !important;
 }
 
+/*Sizing of the button*/
 #button {
 	width: 100% !important;
 	margin-bottom: 5px;
