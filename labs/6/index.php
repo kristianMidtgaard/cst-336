@@ -57,9 +57,12 @@
                                $("#history").append("<img src='" + data[0]['productImage'] + "' width='200'/> <br/>"); 
                                data.forEach(function(key){
                                    $("#history").append("Purchase Date: " + key['purchaseData'] + "<br/>");
-                                   $("history").append("Unit Price: " + key['unitPrice'] + "<br/>");
-                                   $("history").append("Quantity: " + key['quantity'] + "<br/>")
+                                   $("#history").append("Unit Price: " + key['unitPrice'] + "<br/>");
+                                   $("#history").append("Quantity: " + key['quantity'] + "<br/>")
                                });
+                               
+                           }else{
+                               $("#history").html("No purchase history for this item."); 
                            }
                        }
                     });
@@ -100,7 +103,6 @@
             </div>
                 <br>
                 <hr>
-                
             <div id="results"> </div>
        
             

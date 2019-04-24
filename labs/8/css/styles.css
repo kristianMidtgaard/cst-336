@@ -1,0 +1,42 @@
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+#img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9{
+    background-repeat: no-repeat;
+}
+
+.grid {
+  display: flex;                     
+  flex-wrap: wrap;                     
+  justify-content: space-around;
+  
+}
+.cell {
+  flex: 0 0 32%;                       
+  height: 150px;
+  margin-bottom: 5px;
+  
+}
+
+#like01{
+ border: solid black 2px;   
+}
