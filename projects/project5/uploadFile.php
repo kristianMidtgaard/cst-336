@@ -1,39 +1,64 @@
 <?php 
-// http://php.net/manual/en/features.file-upload.multiple.php
+//$max_file_size = 10*1024*1024; //10MB
+//echo '<script>console.log("")</script>';
+ 
+ function filterUploadedFile() {
+   
+  $allowedTypes = array("text/plain","image/png");
+  $allowedExtensions = array("txt", "png");
+  $allowedSize = 10*1024*1024;
+  $filterError = "";
+  
+  if (!in_array($_FILES["fileName"]["type"],  $allowedTypes ) ) {
+        $filterError = "Invalid type. <br>";
+   }
 
-if (isset($_POST['uploadForm'])) {
-    
-    $file_ary = reArrayFiles($_FILES['fileName']);
-
-    foreach ($file_ary as $file) {
-        if ($file["error"] > 0) {
-          echo "Error: " . $file["error"] . "<br>";
-        }
-        else {
-          echo "Upload: " . $file["name"] . "<br>";
-          echo "Type: " . $file["type"] . "<br>";
-          echo "Size: " . ($file["size"] / 1024) . " KB<br>";
-          echo "Stored in: " . $file["tmp_name"] . "<br><br>";
-        }  
-        // print 'File Name: ' . $file['name'];
-        // print 'File Type: ' . $file['type'];
-        // print 'File Size: ' . $file['size'];
-    }
-    
-} //endIf form submission
-
-function reArrayFiles(&$file_post) {
-    $file_ary = array();
-    $file_count = count($file_post['name']);
-    $file_keys = array_keys($file_post);
-
-    for ($i=0; $i<$file_count; $i++) {
-        foreach ($file_keys as $key) {
-            $file_ary[$i][$key] = $file_post[$key][$i];
-        }
+  $fileName = $_FILES["fileName"]["name"];
+   if (!in_array(substr($fileName,strrpos($fileName,".")+1), $allowedExtensions) ) {
+       $filterError = "Invalid extension. <br>";
     }
 
-    return $file_ary;
-}
+   if ($_FILES["fileName"]["size"]  > $allowedSize  ) {
+        $filterError .= "File size too big. <br>";
+    }
+    return $filterError;
+  }
+
+
+  if ($_FILES["fileName"]["error"] > 0) {
+    echo "Error: " . $_FILES["fileName"]["error"] . "<br>";
+  }
+  else {
+    echo "Epost: " . $_POST["epost"]. "<br>";
+    echo "Caption: " . $_POST["caption"] . "<br>";
+    echo "Upload: " . $_FILES["fileName"]["name"] . "<br>";
+    echo "Type: " . $_FILES["fileName"]["type"] . "<br>";
+    echo "Size: " . ($_FILES["fileName"]["size"] / 1024) . " KB<br>";
+    echo "Stored in: " . $_FILES["fileName"]["tmp_name"] . "<br><br>";
+    
+    
+    $host = "127.0.0.1";
+    $dbname = "file";
+    $username = "kristianmidt";
+    $password = "";
+  
+    // Get Data from DB
+    $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    
+    $binaryData = file_get_contents($_FILES["fileName"]["tmp_name"]);
+    $sql = "INSERT INTO up_files (	email_address, caption, media ) " .
+              "  VALUES (:email_address, :caption, :media) ";
+              
+    $stm=$dbConn->prepare($sql);
+    
+    $stm->execute(array (":email_address"=>$_POST["epost"],
+                         ":caption"=>$_POST["caption"],
+                         ":media"=>$binaryData));
+                         
+    echo "<br />File saved into database <br /><br />";  
+  }
+    
+    
 ?>
 

@@ -1,0 +1,64 @@
+/*1*/
+#header{
+    margin-top: 5px;
+    text-align: center;
+    
+}
+
+/*2*/
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif !important;
+  border: 2px solid #ced4da !important;
+  width: 70% !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important;
+}
+
+/*3*/
+#epostDiv{
+    margin-top: 10px;
+}
+
+/*4*/
+#uploadButton{
+    margin-top: 2px;
+}
+
+/*5*/
+#progress{
+    margin-top: 4px;
+}
+
+/*6*/
+.col-md-3{
+    padding-left: 0px;
+}
+
+/*7*/
+#results{
+    width: 400px !important;
+}
+
+/*8*/
+#tombnailsBtn{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/*9*/
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+/*10*/
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#thumbnails{
+    margin-bottom: 10px;
+}

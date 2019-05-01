@@ -88,9 +88,20 @@
         echo json_encode(array("success" => true));
   
         } catch (PDOException $e) {
-          echo json_encode(array(
-            "success" => false,
-            "message" => $e->getMessage()));
+        switch ($ex->getCode()) {
+          case "23000":
+            echo json_encode(array(
+              "success" => false, 
+              "message"=> "email taken, try another",
+              "details" => $ex->getMessage()));
+            break;
+          default:
+            echo json_encode(array(
+              "success" => false, 
+              "message"=> $ex->getMessage(),
+              "details" => $ex->getMessage()));
+            break;
+        }
         }
       break;
     case 'PUT':
